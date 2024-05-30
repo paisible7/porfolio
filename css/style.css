@@ -44,7 +44,7 @@ body {
         transform: rotate(-20deg);
     }
     100% {
-        opacity: 0;
+        opacity: 1;
         transform: rotate(0deg);
     }
 }
@@ -68,6 +68,7 @@ body {
 
 .cover.cover-right {
     z-index: 100;
+    transition: transform 1s cubic-bezier(.645, .045, .355, 1);
 }
 
 .cover.cover-right.turn {
@@ -79,6 +80,7 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    perspective: 250rem;
 }
 
 .book .book-page {
@@ -91,6 +93,9 @@ body {
     padding: 2rem;
 }
 
+.book-page.page-left {
+    box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
+}
 .profile-page {
     display: flex;
     flex-direction: column;
@@ -184,10 +189,12 @@ body {
     right: 0;
     transform-style: preserve-3d;
     transform-origin: left;
+    transition: transform 1s cubic-bezier(.645, .045, .355, 1);
 }
 
 .book-page.page-right.turn {
     transform: rotateY(-180deg);
+
 }
 
 .book-page .page-front,
