@@ -8,7 +8,7 @@
 
 }
 
-:root {
+/* :root {
     --bg-color: #081b29;
     --main-color : #00abf0;
     --text-color : #333;
@@ -17,6 +17,18 @@
     --cover-color: linear-gradient(45deg, #00abf0, #006e9a);
     --pages-color: linear-gradient(90deg, #fff, #ddd);
     --border: .125rem solid #00abf0;
+    --box-shado: 0 0 .6rem rgba(0, 0, 0, .2);
+} */
+
+:root {
+    --bg-color: #181111;
+    --main-color : #EC6142;
+    --text-color :  #5C271F;
+    --second-text-color: #D13415;
+    --white-color : #fffcfc;
+    --cover-color: linear-gradient(45deg, #4E1511, #5E1C16);
+    --pages-color: linear-gradient(90deg, #FFFCFC, #FFF8F7);
+    --border: .125rem solid #6E2920;
     --box-shado: 0 0 .6rem rgba(0, 0, 0, .2);
 }
 body {
