@@ -15,7 +15,7 @@
   
   body {
     align-items: center;
-    background: black;
+    background: #111927;
     display: flex;
     font-family: -apple-system, 
       BlinkMacSystemFont, 
@@ -29,10 +29,10 @@
   }
   
   .container {
-    color: #9b0000;
+    color: #0D74CE;
     margin: 0 auto;
     text-align: center;
-    background: black;
+    background: white;
     width: 80%;
     height: 80%;
     display: flex;
@@ -40,6 +40,7 @@
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
+    font-size: 1.5rem;
     animation: ombre 10s linear infinite;
   }
   
@@ -48,7 +49,7 @@
       box-shadow: 0 0 50px transparent;
     }
     50% {
-      box-shadow: 0 0 50px red;
+      box-shadow: 0 0 50px black    ;
     }
     100% {
       box-shadow: 0 0 50px transparent;
@@ -60,6 +61,10 @@
     font-weight: normal;
     letter-spacing: .125rem;
     text-transform: uppercase;
+    background: #0090FF;
+    padding: 25px;
+    border-radius: 20px;
+    color: white;
   }
   
   li {
@@ -68,13 +73,13 @@
     list-style-type: none;
     padding: 1em;
     text-transform: uppercase;
-    color: #5a1010;
+    color: black;
   }
   
   li span {
     display: block;
     font-size: 4.5rem;
-    color: #a1a1a1;
+    color: black;
   }
   
   .emoji {
