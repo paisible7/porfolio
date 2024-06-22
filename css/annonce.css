@@ -40,7 +40,6 @@
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
-    font-size: 1.5rem;
     animation: ombre 10s linear infinite;
   }
   
