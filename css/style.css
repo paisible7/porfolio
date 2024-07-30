@@ -8,54 +8,7 @@
 
 }
 
-.dev {
-    width: 100%;
-    height: 100vh;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.dev .devCount {
-    background-color: black;
-    width: 80%;
-    height: 80%;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 0 40px 5px red;
-}
-
-.dev .devCount h1 {
-    font-size: 4em;
-    color: rgb(209, 0, 0);
-}
-
-.dev .devCount span p {
-    font-size: 2rem;
-}
-
-
-.dev .devCount p {
-    color: gray;
-    font-size: 2em;
-}
-.dev .devCount .countdown hr {
-    background-color: gold;
-    color: green;
-    width: 100%;
-    border: 2px solid gray;
-}
-
-.dev .devCount .countdown span{
-    font-size: 7rem;
-    color: whitesmoke;
-
-    text-align: center;
-}
 /* :root {
     --bg-color: #081b29;
     --main-color : #00abf0;

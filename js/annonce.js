@@ -1,32 +1,33 @@
 (function () {
-    const second = 1000,
-          minute = second * 60,
-          hour = minute * 60,
-          day = hour * 24;
-    let today = new Date(),
-        dd = String(today.getDate()).padStart(2, "0"),
-        mm = String(today.getMonth() + 1).padStart(2, "0"),
-        yyyy = today.getFullYear(),
-        nextYear = yyyy + 1,
-        dayMonth = "09/30/",
-        birthday = dayMonth + yyyy;
+    const seconde = 1000,
+          minute = seconde * 60,
+          heure = minute * 60,
+          jour = heure * 24;
+          
+    let journee = new Date(),
+        dd = String(journee.getDate()).padStart(2, "0"),
+        mm = String(journee.getMonth() + 1).padStart(2, "0"),
+        yyyy = journee.getFullYear(),
+        annee = yyyy + 1,
+        jrMois = "08/20/",
+        jourJ = jrMois + yyyy;
     
-    today = mm + "/" + dd + "/" + yyyy;
-    if (today > birthday) {
-      birthday = dayMonth + nextYear;
+    journee = mm + "/" + dd + "/" + yyyy;
+    if (journee > jourJ) {
+      jourJ = jrMois + annee;
     }
   
     
-    const countDown = new Date(birthday).getTime(),
+    const countDown = new Date(jourJ).getTime(),
         x = setInterval(function() {    
   
           const now = new Date().getTime(),
                 distance = countDown - now;
   
-          document.getElementById("jr").innerText = Math.floor(distance / (day)),
-            document.getElementById("hr").innerText = Math.floor((distance % (day)) / (hour)),
-            document.getElementById("min").innerText = Math.floor((distance % (hour)) / (minute)),
-            document.getElementById("sec").innerText = Math.floor((distance % (minute)) / second);
+          document.getElementById("jr").innerText = Math.floor(distance / (jour)),
+            document.getElementById("hr").innerText = Math.floor((distance % (jour)) / (heure)),
+            document.getElementById("min").innerText = Math.floor((distance % (heure)) / (minute)),
+            document.getElementById("sec").innerText = Math.floor((distance % (minute)) / seconde);
       
         }, 0)
     }());

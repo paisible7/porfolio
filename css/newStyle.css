@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+}
+
+
+:root {
+    --bg-color: #081b29;
+    --main-color : #006b54;
+    --text-color : #333;
+    --second-text-color: #555;
+    --white-color : #fff;
+    --cover-color: linear-gradient(45deg, #00abf0, #006e9a);
+    --pages-color: linear-gradient(90deg, #fff, #ddd);
+    --border: .125rem solid #000000;
+    --box-shado: 0 0 .6rem rgba(0, 0, 0, .2);
+}
+
+.header {
+    background: linear-gradient(to bottom right, white, #79ff79 );
+    min-height: 650px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .profile-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: red;
+
+}
+
+
+.header .profile-page img {
+    max-width: 400px;
+    border-radius: 50%;
+    border: .18rem solid black;
+    margin-bottom: .8rem;
+}
+
+
+.header .profile-page h1 {
+    font-size: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.header .profile-page h3 {
+    font-size: 1.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header .profile-page  .social-media {
+    margin: .6rem 0 .8rem;
+}
+.header .profile-page  .social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 .2rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 100%;
+    color: white;
+    background: black;
+    font-size: 1.3rem;
+}
+
+.header .profile-page .social-media a:hover {
+    background: red;
+}
+
+
+.header nav {
+    height: 70px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+    background-color: red;
+}
+
+
+.header .container {
+    max-width: 1600px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header .profile-page .btn-box  {
+    margin-top: 1.2rem;
+    
+}
+
+.btn:hover {
+    background-color:transparent;
+    color: var(--main-color);
+}
+
+.btn {
+    display: inline-flex;
+    width: 9.5rem;
+    height: 3rem;
+    background: var(--main-color);
+    border: var(--border);
+    border-radius: 1rem;
+    color: var(--white-color);
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    margin: 0 1rem;
+    transition: .5s;
+}
+
+.btn-box .btn:nth-child(2){
+    background-color: transparent;
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2):hover {
+    background-color: var(--main-color);
+    color: var(--white-color) ;
+}
