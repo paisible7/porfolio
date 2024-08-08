@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* :root {
+    --bg-color: blue;
+    --main-color : white;
+    --text-color :  black;
+    --second-text-color: ;
+    --white-color : #fffcfc;
+    --cover-color: linear-gradient(45deg, #4E1511, #5E1C16);
+    --pages-color: linear-gradient(90deg, #FFFCFC, #FFF8F7);
+    --border: .125rem solid #6E2920;
+    --box-shado: 0 0 .6rem rgba(0, 0, 0, .2);
+} */
+
+html {
+    font-size: 25px;
+}
+
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+    header {
+        height: 100vh;
+        display: flex;
+    }
+
+        header section {
+            height: 100%;
+            width: 100%;
+        }
+
+            header section .container {
+                display: flex;
+                height: 100%;
+            }
+
+                header section .container .hg {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                }
+
+                    header section .container .hg .hg-cont {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                        header section .container .hg .hg-cont .nav {
+                            display: flex;
+                            justify-content: left;
+                            padding: 0 40px;
+                            align-items: center;
+                            width: 100%;
+                            height: 10%;
+                        }
+
+                            header section .container .hg .hg-cont .nav .img {
+                                width: 10%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin: 0 5px;
+                            }
+
+                                header section .container .hg .hg-cont .nav .img .img_box {
+                                    width: 3rem;
+                                    height: 3rem;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    border-radius: 100%;
+                                    overflow: hidden;
+                                }
+
+                                    header section .container .hg .hg-cont .nav .img .img_box img {
+                                        width: 100%;
+                                    }
+
+                            header section .container .hg .hg-cont .nav nav {
+                                text-align: center;
+                            }
+                            
+                                header section .container .hg .hg-cont .nav nav a{
+                                    margin: 0 5px;
+                                    color: darkblue;
+                                    font-weight: 400;
+                                    font-size: 1.075rem;
+                                }
+
+                        header section .container .hg .hg-cont .texte {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100%;
+                            height: 80%;
+                        }
+
+                            header section .container .hg .hg-cont .texte .txt h1 {
+                                font-size: 3rem;
+                                font-weight: bold;
+                            }
+
+                            header section .container .hg .hg-cont .texte .txt h2 {
+                                font-size: 1.5rem;
+                                font-weight: 350;
+                            }
+
+                            header section .container .hg .hg-cont .texte .txt h2 span{
+                                font-size: 1.5rem;
+                                font-weight: 500;
+                            }
+
+                        header section .container .hg .hg-cont .lien {
+                            display: flex;
+                            justify-content: space-between  ;
+                            align-items: center;
+                            padding: 0 40px;
+                            width: 100%;
+                            height: 10%;
+                        }
+
+                        header section .container .hg .hg-cont .lien a:nth-child(1) {
+                            font-size: 1.25rem;
+                            color: black;
+                        }
+                        header section .container .hg .hg-cont .lien a:nth-child(2){
+                            background: darkblue;
+                            font-size: .6rem;
+                            padding: 12px 18px;
+                            color: white;
+                            font-weight: 450;
+                            border-radius: 40px;
+                        }
+                header section .container .hd{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+
+                    header section .container .hd .hd-cont {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 0 0 0 3rem;
+                        background: green;
+                    }
