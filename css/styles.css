@@ -20,6 +20,7 @@
 
 html {
     font-size: 25px;
+    scroll-behavior: smooth;
 }
 
 
@@ -27,22 +28,23 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-    header {
+    section {
         height: 100vh;
         display: flex;
+        flex-direction: column;
     }
 
-        header section {
+        section .section1 {
             height: 100%;
             width: 100%;
         }
 
-            header section .container {
+            section .section1 .container {
                 display: flex;
                 height: 100%;
             }
 
-                header section .container .hg {
+                section .section1 .container .hg {
                     width: 100%;
                     display: flex;
                     justify-content: center;
@@ -50,7 +52,7 @@ body {
                     
                 }
 
-                    header section .container .hg .hg-cont {
+                    section .section1 .container .hg .hg-cont {
                         width: 100%;
                         height: 100%;
                         display: flex;
@@ -59,7 +61,7 @@ body {
                         align-items: center;
                     }
 
-                        header section .container .hg .hg-cont .nav {
+                        section .section1 .container .hg .hg-cont .nav {
                             display: flex;
                             justify-content: left;
                             padding: 0 40px;
@@ -68,7 +70,7 @@ body {
                             height: 10%;
                         }
 
-                            header section .container .hg .hg-cont .nav .img {
+                            section .section1 .container .hg .hg-cont .nav .img {
                                 width: 10%;
                                 height: 100%;
                                 display: flex;
@@ -77,7 +79,7 @@ body {
                                 margin: 0 5px;
                             }
 
-                                header section .container .hg .hg-cont .nav .img .img_box {
+                                section .section1 .container .hg .hg-cont .nav .img .img_box {
                                     width: 3rem;
                                     height: 3rem;
                                     display: flex;
@@ -87,22 +89,22 @@ body {
                                     overflow: hidden;
                                 }
 
-                                    header section .container .hg .hg-cont .nav .img .img_box img {
+                                    section .section1 .container .hg .hg-cont .nav .img .img_box img {
                                         width: 100%;
                                     }
 
-                            header section .container .hg .hg-cont .nav nav {
+                            section .section1 .container .hg .hg-cont .nav nav {
                                 text-align: center;
                             }
                             
-                                header section .container .hg .hg-cont .nav nav a{
+                                section .section1 .container .hg .hg-cont .nav nav a{
                                     margin: 0 5px;
                                     color: darkblue;
                                     font-weight: 400;
                                     font-size: 1.075rem;
                                 }
 
-                        header section .container .hg .hg-cont .texte {
+                        section .section1 .container .hg .hg-cont .texte {
                             display: flex;
                             justify-content: center;
                             align-items: center;
@@ -110,22 +112,21 @@ body {
                             height: 80%;
                         }
 
-                            header section .container .hg .hg-cont .texte .txt h1 {
+                            section .section1 .container .hg .hg-cont .texte .txt h1 {
                                 font-size: 3rem;
                                 font-weight: bold;
                             }
 
-                            header section .container .hg .hg-cont .texte .txt h2 {
+                            section .section1 .container .hg .hg-cont .texte .txt h2 {
                                 font-size: 1.5rem;
                                 font-weight: 350;
                             }
 
-                            header section .container .hg .hg-cont .texte .txt h2 span{
-                                font-size: 1.5rem;
+                            section .section1 .container .hg .hg-cont .texte .txt h2 span{
                                 font-weight: 500;
                             }
 
-                        header section .container .hg .hg-cont .lien {
+                        section .section1 .container .hg .hg-cont .lien {
                             display: flex;
                             justify-content: space-between  ;
                             align-items: center;
@@ -134,11 +135,11 @@ body {
                             height: 10%;
                         }
 
-                        header section .container .hg .hg-cont .lien a:nth-child(1) {
+                        section .section1 .container .hg .hg-cont .lien a:nth-child(1) {
                             font-size: 1.25rem;
                             color: black;
                         }
-                        header section .container .hg .hg-cont .lien a:nth-child(2){
+                        section .section1 .container .hg .hg-cont .lien a:nth-child(2){
                             background: darkblue;
                             font-size: .6rem;
                             padding: 12px 18px;
@@ -146,7 +147,7 @@ body {
                             font-weight: 450;
                             border-radius: 40px;
                         }
-                header section .container .hd{
+                section .section1 .container .hd{
                     width: 100%;
                     display: flex;
                     justify-content: center;
@@ -154,9 +155,121 @@ body {
                 }
 
 
-                    header section .container .hd .hd-cont {
+                    section .section1 .container .hd .hd-cont {
                         width: 100%;
                         height: 100%;
                         border-radius: 0 0 0 3rem;
                         background: green;
                     }
+
+        section .section2 {
+            width: 100%;
+            max-height: 70vh;
+        }
+
+            section .section2 .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+
+            }
+
+                section .section2 .container h1 {
+                    color: black;
+                    padding:40px 0;
+                    font-size: 2rem;
+                }
+
+                section .section2 .container .projet {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 70%;
+                    height: 80%;
+                    padding: 10px 0 40px 0;
+                }
+
+                    section .section2 .container .projet .grille {
+                        display: grid;
+                        width: 100%;
+                        height: 100%;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        grid-template-rows: 100%;
+                        gap: 2rem;
+                    }
+
+                        section .section2 .container .projet .grille .item {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 5%;
+                            transition: .2s;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 20px;
+                            gap: 10px;
+                            box-shadow: 0 0 10px 0px #66666634;
+                        }
+
+                        section .section2 .container .projet .grille .item:hover {
+                            transform: scale(1.05);
+                            transition: .2s;
+                        }
+
+                            section .section2 .container .projet .grille .item .img {
+                                display: flex;
+                                width: 100%;
+                                height: 50%;
+                                overflow: hidden;
+                                border-radius: 15px;
+                            }
+
+                                section .section2 .container .projet .grille .item .img img {
+                                    width: 100%;
+                                    object-fit: cover ;
+                                    transition: .3s;
+                                }
+
+                                section .section2 .container .projet .grille .item .img:hover img {
+                                    transform: scale(1.15) rotate(5deg);
+                                    transition: .3s;
+                                    cursor: pointer;
+                                }
+
+                            section .section2 .container .projet .grille .item .txt {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                width: 100%;
+                                height: 50%;
+                                gap: 8px;
+                                overflow: hidden;
+                            }
+
+                                section .section2 .container .projet .grille .item .txt h3 {
+                                    text-align: center;
+                                    font-size: 1rem;
+
+                                }
+
+                                section .section2 .container .projet .grille .item .txt p {
+                                    text-align: center;
+                                    font-size: .7rem;
+                                }
+
+                                section .section2 .container .projet .grille .item .txt a {
+                                    font-size: .7rem;
+                                    background: #c7f1ffd7;
+                                    color: #00005c;
+                                    padding: 3px 30px;
+                                    border-radius: 50px;
+                                }
+                                
+            section .section3 {
+                background: red;
+            }
