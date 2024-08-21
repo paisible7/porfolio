@@ -269,7 +269,65 @@ body {
                                     padding: 3px 30px;
                                     border-radius: 50px;
                                 }
+
+        section#portfolio {
+            display: flex;
+            height: 70vh;
+            background: cadetblue;
+            flex-direction: column;
+        }                                
                                 
             section .section3 {
-                background: red;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
             }
+
+                section .section3 .container {
+                    width: 70%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+
+                    section .section3 .container .txt {
+                        background: #ffffff7c;
+                        width: 50%;
+                        padding: 40px;
+                        position: relative;
+                        left: 50px;
+                        line-height: 50px;
+                        border-radius: 15px;
+                        z-index: 1;
+                        box-shadow: 0 0 30px 0 #00000054;
+
+                    }
+                    section .section3 .container .img {
+                        width: 40%;
+                        height: 80%;
+                        background: black;
+                        border-radius: 15px;
+                        transform: rotate(7.5deg);
+                        overflow: hidden;
+                        object-fit: cover;
+                        border: none;
+                    }
+
+                        section .section3 .container .img .img_item {
+                            width: 101%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            opacity: 0;
+                            transform: scale(1);
+                            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+                        }
+
+                        section .section3 .container .img .img_item.active {
+                            opacity: 1;
+                            transform: scale(1.1);
+                            
+                        }
