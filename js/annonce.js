@@ -9,7 +9,7 @@
         mm = String(journee.getMonth() + 1).padStart(2, "0"),
         yyyy = journee.getFullYear(),
         annee = yyyy + 1,
-        jrMois = "08/25/",
+        jrMois = "09/15/",
         jourJ = jrMois + yyyy;
     
     journee = mm + "/" + dd + "/" + yyyy;
