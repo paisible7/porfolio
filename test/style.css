@@ -353,7 +353,7 @@ section {
  }
 
 
- @media (max-width : 1200px) {
+ @media (max-width : 1280px) {
 
     header {
         padding: 1rem 2rem;
@@ -401,6 +401,7 @@ section {
     .about-container {
         flex-direction: column;
     }
+
     .input-box input {
         padding: 1rem 2rem;
         font-size: 1.8rem;
@@ -425,11 +426,12 @@ section {
 
 
  @media (max-width : 600px) {
+
     header #menu-icon {
         display: block;
     }
 
-    .nav-links {
+    .nav_link {
         position: absolute;
         top: 100%;
         margin-top: 1rem;
@@ -444,12 +446,12 @@ section {
         display: none;
     }
 
-    .nav-links li {
+    .nav_link li {
         margin-top: 1.5rem;
         padding: 1rem;
     }
 
-    .nav-links.active {
+    .nav_link.active {
         display: block;
     }
 
