@@ -72,7 +72,9 @@ li a:hover::before{
     padding: 0.8rem 1.5rem;
     border-radius: 3rem;
     border: none;
+    font-weight: 500;
     font-size: 1rem;
+    color: white;
     text-wrap: nowrap;
     cursor: pointer;
     transition: .3s ease-in-out;
@@ -80,6 +82,11 @@ li a:hover::before{
 }
 
 .visit-btn:hover {
+    background: var(--linear);
+    transform: scale(1.03);
+}
+
+#menu-icon{
     font-size: 2rem;
     display: none;
 }
