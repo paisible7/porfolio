@@ -315,7 +315,7 @@ body {
                     }
 
                         section .section3 .container .img .img_item {
-                            width: 101%;
+                            width: 100%;
                             position: absolute;
                             top: 0;
                             object-fit: cover;

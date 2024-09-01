@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PAISIBLE</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/fontawesome-free-6.5.2-web/css/all.min.css">
 </head>
@@ -37,8 +38,9 @@
     </header>
     <section class="about" id="about">
         <div class="about-container">
-            <img src="../images/moi1.jpg" alt="">
-
+            <div class="img">
+                <img src="../images/moi1.jpg" alt="">
+            </div>
             <div class="info-box">
                 <div class="text">
                     <h3>Hi, I'm</h3>
@@ -93,8 +95,9 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, facere!</p>
                 </div>
             </div>
-
-            <img src="../images/profile.PNG" alt="">
+            <div class="img">
+                <img src="../images/moi3.jpg" alt="">
+            </div>
         </div>
     </section>
 
@@ -105,7 +108,9 @@
 
         <div class="projet-grid">
             <div class="projet-card">
-                <img src="" alt="">
+                <div class="projet_img">
+                    <img src="../images/moi1.jpg" alt="">
+                </div>
                 <h3>Projet X</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt ipsum consequuntur reiciendis perferendis</p>
                 <div class="btn-group">
@@ -114,8 +119,9 @@
                 </div>
             </div>
             <div class="projet-card">
-                <img src="" alt="">
-                <h3>Projet X</h3>
+                <div class="projet_img">
+                    <img src="../images/moi1.jpg" alt="">
+                </div>                <h3>Projet X</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt ipsum consequuntur reiciendis perferendis</p>
                 <div class="btn-group">
                     <div class="btn">preview</div>
@@ -123,8 +129,9 @@
                 </div>
             </div>
             <div class="projet-card">
-                <img src="" alt="">
-                <h3>Projet X</h3>
+                <div class="projet_img">
+                    <img src="../images/moi1.jpg" alt="">
+                </div>                <h3>Projet X</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt ipsum consequuntur reiciendis perferendis</p>
                 <div class="btn-group">
                     <div class="btn">preview</div>
@@ -135,16 +142,20 @@
     </section>
 
     <section class="contact" id="contact">
+        <h2 class="section-title">
+            Me contacter
+        </h2>
         <div class="input-box">
-            <h2 class="section-title">
-                Me contacter
-            </h2>
             <div class="input">
-                <input type="text" name="mail" id="mail" placeholder="VotreAdresse@email.com">
+                <input type="email" name="mail" id="mail" placeholder="VotreAdresse@email.com" required>
                 <i class="far fa-envelope"></i>
             </div>
+            <div class="input">
+                <textarea type="text" name="message" id="message" placeholder="Votre Message" required></textarea>
+                <i class="far fa-comment-dots"></i>
+            </div>
 
-            <div class="btn">Submit</div>
+            <button type="submit" class="btn">Envoyer</button>
         </div>
         </section>
         <footer>
