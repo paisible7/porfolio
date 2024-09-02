@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +11,13 @@
 <body>
 
     <header class="header">
-        <div class="logo">
-            <!-- <a href="#">
-                <img src="../images/logo.jpg" alt="">
-            </a> -->
-        </div>
+        <a href="#" class="log">
+            <div class="logo">
+            <img src="../images/favicon.png" alt="">
+            </div>
+        </a>
         <div class="nav">
-            <!-- <ul class="nav_link">
+            <ul class="nav_link">
                 <li>
                     <a href="#about">A Propos</a>
                 </li>
@@ -30,10 +30,11 @@
                 <li>
                     <a href="#contact">Contact</a>
                 </li>
-            </ul> -->
+            </ul>
         </div>
         <div class="button">
-            <!-- <i class="fas fa-bars" id="menu-icon"></i>y -->
+            <i class="fas fa-bars" id="menu-icon"></i>
+            <button class="visit-btn">Visite Mon Github</button>
         </div>
     </header>
     <section class="about" id="about">
@@ -142,43 +143,47 @@
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="section-title">
-            Me contacter
-        </h2>
-        <div class="input-box">
-            <div class="input">
-                <input type="email" name="mail" id="mail" placeholder="VotreAdresse@email.com" required>
-                <i class="far fa-envelope"></i>
-            </div>
-            <div class="input">
-                <textarea type="text" name="message" id="message" placeholder="Votre Message" required></textarea>
-                <i class="far fa-comment-dots"></i>
+        <div class="contact-container">
+            <h2 class="section-title">
+                Me contacter
+            </h2>
+            <div class="input-box">
+                <form action="">
+                <div class="input">
+                    <input type="email" name="mail" id="mail" placeholder="VotreAdresse@email.com" required>
+                    <i class="far fa-envelope"></i>
+                </div>
+    
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
             </div>
 
-            <button type="submit" class="btn">Envoyer</button>
         </div>
-        </section>
         <footer>
             <ul>
                 <li>
                     <a href="#about">A Propos</a>
                 </li>
+                <hr>
                 <li>
                     <a href="#skill">Skill</a>
                 </li>
+                <hr>
                 <li>
                     <a href="#projet">Projet</a>
                 </li>
+                <hr>
                 <li>
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
 
             <p class="copyright">
-                Tous droits reservés | M. Paisible
+                 ©Copyright 2024 |  M. Paisible <br>
+                <span>Tous Droits Réservés</span>
             </p>
         </footer>
-    </div>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>
