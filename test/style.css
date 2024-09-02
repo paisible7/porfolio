@@ -9,7 +9,7 @@
 }
 
 :root {
-    --linear : linear-gradient(to right, #009dff, #ff00ff);
+    --linear: linear-gradient(to right, #009dff, #ff00ff);
     --bg: black;
     --fg: white;
 }
@@ -104,7 +104,7 @@ header {
     background: var(--linear);
 }
 
-.nav li a:hover::before{
+.nav li a:hover::before {
     width: 100%;
 }
 
@@ -136,7 +136,7 @@ header {
     transform: scale(1.03);
 }
 
-#menu-icon{
+#menu-icon {
     font-size: 2rem;
     display: none;
     color: pink;
@@ -280,8 +280,8 @@ section {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:  2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
 .grid-card {
@@ -325,7 +325,8 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #009dff, #ff00ff);;
+    background: linear-gradient(to bottom, #009dff, #ff00ff);
+    ;
 }
 
 
@@ -352,7 +353,7 @@ section {
 .projet-card:hover {
     background-color: white;
     color: black;
-    transform:translateY(-10px)scale(1.02);
+    transform: translateY(-10px)scale(1.02);
 }
 
 .projet-card .projet_img {
@@ -373,12 +374,12 @@ section {
 }
 
 .projet-card:hover .btn {
-    border:  2px solid black;
+    border: 2px solid black;
     color: black;
 }
 
 .projet-card:hover .btn:hover {
-    border:  2px solid black;
+    border: 2px solid black;
     background: black;
     color: white;
 }
@@ -395,7 +396,7 @@ section {
     align-items: center;
     flex-direction: column;
     padding: 0;
-    
+
 }
 
 .contact .contact-container {
@@ -409,46 +410,46 @@ section {
 
 
 
- .input-box {
+.input-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     gap: 2rem;
-    margin-top: 5rem ;
- }
+    margin-top: 5rem;
+}
 
- .input-box input {
+.input-box input {
     border-radius: 3rem;
     border: 2px solid black;
     padding: 2rem 8rem;
     font-size: 3rem;
- }
+}
 
- .input-box input::placeholder {
+.input-box input::placeholder {
     font-size: 3rem;
- }
+}
 
- .input {
+.input {
     position: relative;
- }
+}
 
- form {
+form {
     gap: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
- }
+}
 
- .input i {
+.input i {
     position: absolute;
     font-size: 4rem;
     top: 50%;
     left: 10px;
     transform: translate(50%, -50%);
- }
+}
 
 
 button.btn {
@@ -480,7 +481,7 @@ button.btn:hover {
     gap: .5rem;
     align-items: center;
     justify-content: center;
- }
+}
 
 .contact footer ul {
     display: flex;
@@ -489,26 +490,26 @@ button.btn:hover {
     padding: .5rem 6rem;
     border-left: 2px solid #80808080;
     border-right: 2px solid #80808080;
- }
+}
 
- .contact footer ul li {
+.contact footer ul li {
     padding: .5rem 2rem;
 
- }
+}
 
- .contact footer ul hr {
+.contact footer ul hr {
     border: 0.05rem solid dimgray;
     background: dimgray;
     border-radius: 100%;
     padding: .5px;
- }
+}
 
 .contact footer ul li a {
     position: relative;
     color: white;
     font-weight: 600;
     font-size: 1.15rem;
- }
+}
 
 .contact footer ul li a::before {
     position: absolute;
@@ -520,14 +521,14 @@ button.btn:hover {
     border-radius: 1rem;
     transition: .3s ease-in-out;
     background: var(--linear);
- }
+}
 
-.contact footer ul li a:hover::before{
+.contact footer ul li a:hover::before {
     width: 100%;
 }
 
 
- .copyright {
+.copyright {
     font-size: 1.15rem;
     font-weight: 600;
     letter-spacing: 3px;
@@ -537,16 +538,16 @@ button.btn:hover {
     background-clip: text;
     color: transparent;
     text-align: center;
- }
+}
 
- .copyright span {
+.copyright span {
     color: white;
     letter-spacing: 1px;
     font-size: 1.1rem;
- }
+}
 
 
- @media (max-width : 1280px) {
+@media (max-width : 1280px) {
 
     header {
         padding: 1rem 2rem;
@@ -572,19 +573,19 @@ button.btn:hover {
     }
 
     .input-box i {
-        font-size:  2.5rem;
+        font-size: 2.5rem;
     }
- }
+}
 
- @media (max-width : 992px) {
+@media (max-width : 992px) {
     header {
         width: 80%;
     }
 
- }
+}
 
 
- @media (max-width : 768px) {
+@media (max-width : 768px) {
 
     header {
         padding: 1rem 1rem;
@@ -618,16 +619,16 @@ button.btn:hover {
     }
 
     .grid {
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .skill-info img {
         width: 70vw;
     }
- }
+}
 
 
- @media (max-width : 600px) {
+@media (max-width : 600px) {
 
     header #menu-icon {
         display: block;
@@ -684,4 +685,4 @@ button.btn:hover {
         gap: 1rem;
     }
 
- }
+}
