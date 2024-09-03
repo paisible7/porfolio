@@ -42,7 +42,7 @@
     <section class="about" id="about">
         <div class="about-container">
             <div class="img">
-                <img src="../images/moi1.jpg" alt="">
+                <img src="../images/moi111.png" alt="">
             </div>
             <div class="info-box">
                 <div class="text">
@@ -191,6 +191,15 @@
             </p>
         </footer>
     </section>
+    <script src="../js/modernizr-custom.js"></script>
+    <script>
+        if (Modernizr.css.backgroundcliptext) {
+            document.body.classList.add('isTrue');
+        }
+        else {
+            document.body.classList.add('isFalse');
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 

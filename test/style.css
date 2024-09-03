@@ -176,7 +176,7 @@ section {
 .about-container .img img {
     width: 100%;
     height: 100%;
-    transform: scale(1.15);
+    background: linear-gradient(to top, #ff00ff, #009dff);
     object-fit: cover;
     object-position: top;
 
@@ -197,15 +197,26 @@ section {
     opacity: 0.8;
 }
 
+
+/* modernizr à revoir */
+/* modernizr à revoir */
+/* modernizr à revoir */
+
 .info-box h1 {
     font-size: 4rem;
     font-weight: 600;
 }
 
-.info-box span {
+.isTrue .info-box span {
     background: var(--linear);
     background-clip: text;
     color: transparent;
+    font-size: 2rem;
+}
+
+.isFalse .info-box span {
+    background: none;
+    color: #009dff;
     font-size: 2rem;
 }
 
@@ -325,6 +336,19 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #009dff, #ff00ff);
+    ;
+}
+
+::-moz-scrollbar {
+    width: .3rem;
+}
+
+::-moz-scrollbar-track {
+    background: black;
+}
+
+::-moz-scrollbar-thumb {
     background: linear-gradient(to bottom, #009dff, #ff00ff);
     ;
 }
@@ -652,6 +676,11 @@ button.btn:hover {
 
     .nav.active {
         display: block;
+    }
+
+    .about-container .img {
+        width: 30rem;
+        height: 30rem;
     }
 
 }
