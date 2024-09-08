@@ -15,7 +15,7 @@
 }
 
 body {
-    background: black;
+    background: #000318;
     color: white;
 }
 
@@ -28,7 +28,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    background: #0009;
+    background: #00000099;
     border: .5px solid white;
     backdrop-filter: blur(10px);
     color: black;
@@ -188,6 +188,7 @@ section {
     text-align: center;
     align-items: center;
     justify-content: center;
+    letter-spacing: .125rem;
     gap: 1.5rem;
 }
 
@@ -316,15 +317,41 @@ section {
 
 .grid-card i {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 .grid-card span {
     font-size: 1.5rem;
     font-weight: 500;
+    margin: .75rem;
     background: var(--linear);
     background-clip: text;
     color: transparent;
+}
+
+.grid-card .tech {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.grid-card .tech .tech-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    overflow: hidden;
+    padding: .5rem;
+    border-radius: 1rem;
+    border: .5px solid rgb(0, 2, 143);
+}
+
+.grid-card .tech .tech-item img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -394,7 +421,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
 }
 
 .projet-card:hover .btn {
@@ -471,6 +498,7 @@ form {
     position: absolute;
     font-size: 4rem;
     top: 50%;
+    color: black;
     left: 10px;
     transform: translate(50%, -50%);
 }
@@ -636,6 +664,7 @@ button.btn:hover {
     header {
         padding: 1rem 1rem;
         gap: 1rem;
+        justify-content: space-between;
     }
 
     header .logo {
@@ -647,14 +676,17 @@ button.btn:hover {
     }
 
 
+    .about-container {
+        flex-direction: column;
+        gap: 5rem;
+    }
+
+
     .about-container .img {
         width: 15rem;
         height: 15rem;
     }
 
-    .about-container {
-        flex-direction: column;
-    }
 
     .input-box input {
         padding: 1rem 2rem;
@@ -665,9 +697,6 @@ button.btn:hover {
         font-size: 1.5rem;
     }
 
-    .input-box i {
-        display: none;
-    }
 
     .grid {
         grid-template-columns: repeat(1, 1fr);
@@ -675,6 +704,10 @@ button.btn:hover {
 
     .skill-info img {
         width: 70vw;
+    }
+
+    .section-title {
+        font-size: 3rem;
     }
 } 
 
@@ -715,12 +748,129 @@ button.btn:hover {
         height: 20rem;
     }
 
+    .skill-info .img {
+        width: 20rem;
+        height: 25rem; 
+    }
+
 }
 
 @media (max-width: 480px) {
+
+    .info-box {
+        gap: 1.25rem;
+    }
+
+    .info-box h1 {
+        font-size: 2.25rem;
+        font-weight: 600;
+    }
+
+    .info-box span {
+        font-size: 1.25rem;
+    }
+
+.btn {
+    border-radius: 3rem;
+    padding: .5rem 1.5rem;
+    border: .5px solid white;
+    font-size: .8rem;
+    cursor: pointer;
+    font-weight: 500;
+    text-wrap: nowrap;
+    transition: .3s ease-in-out;
+}
+
+    .socials i {
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+    }
+
+    .projet-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
     
+    .projet-card {
+        padding: 1rem 1rem;
+        gap: 1rem;
+        border: .5px solid white;
+    }
+    
+    .projet-card .projet_img {
+        width: 16rem;
+        height: 9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 1rem;
+    }
+    
+    .projet-card .projet_img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .input-box input {
+        border-radius: 3rem;
+        border: .5px solid black;
+        padding: 1rem 3.7rem;
+        font-size: 1.1rem;
+    }
+    
+    .input-box input::placeholder {
+        font-size: 1.1rem;
+    }
+
+    .input i {
+        position: absolute;
+        font-size: 1.85rem;
+    }
+    
+    button.btn {
+        padding: .3rem 3rem;
+        cursor: pointer;
+        font-size: 1.25rem;
+    }
+
+    .contact footer {
+        gap: .25rem;
+    }
+
+    .contact footer ul hr {
+        border: 0.025rem solid dimgray;
+        background: dimgray;
+        border-radius: 100%;
+        padding: .25px;
+    }
+
+
+    .contact footer ul {
+        padding: .25rem 2rem;
+        border: none;
+    }
+
+    .contact footer ul li {
+        padding: .25rem .8rem;
+    
+    }
+
+.contact footer ul li a {
+    font-size: .95rem;
+}
+
+.copyright {
+    font-size: .75rem;
+}
+
+.copyright span {
+    font-size: .65rem;
+}
 }
 
 @media (max-width: 360px) {
-    
 }
