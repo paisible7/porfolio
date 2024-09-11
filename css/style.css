@@ -483,10 +483,6 @@ section {
     font-size: 3rem;
 }
 
-.input {
-    position: relative;
-}
-
 form {
     gap: 5rem;
     display: flex;
@@ -494,6 +490,23 @@ form {
     align-items: center;
     flex-direction: column;
 }
+
+.input-box textarea {
+    border-radius: 3rem;
+    border: .5px solid black;
+    padding: 2rem 1rem;
+    font-size: 3rem;
+    resize: none;
+}
+
+.input-box textarea::placeholder {
+    font-size: 3rem;
+}
+
+.input {
+    position: relative;
+}
+
 
 .input i {
     position: absolute;
