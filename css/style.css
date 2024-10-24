@@ -472,14 +472,13 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 2rem;
+    background: red;
     width: 50%;
-    margin-top: .5rem;
 }
 
 .input-box form {
     width: 100%;
-    gap: 2rem;
+    gap: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
