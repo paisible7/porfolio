@@ -200,13 +200,17 @@
                 Contact
             </h2>
             <div class="input-box">
-                <form action="">
+                <form id="contact-form" action="/api/contact" method="POST">
                     <div class="input">
-                        <input type="email" name="mail" id="mail" placeholder="VotreAdresse@email.com" required>
+                        <input type="text" name="name" id="name" placeholder="Entrez Votre Nom" required>
                         <i class="far fa-envelope"></i>
                     </div>
                     <div class="input">
-                        <textarea type="email" name="mail" id="mail" placeholder="Laissez moi un message" required></textarea>
+                        <input type="email" name="email" id="email" placeholder="VotreAdresse@email.com" required>
+                        <i class="far fa-envelope"></i>
+                    </div>
+                    <div class="input">
+                        <textarea name="message" id="message" placeholder="Laissez moi un message" required></textarea>
                         <i class="far fa-envelope"></i>
                     </div>
 
