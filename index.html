@@ -200,7 +200,7 @@
                 Contact
             </h2>
             <div class="input-box">
-                <form id="contact-form" action="/api/contact" method="POST">
+                <form id="contact-form" action="/api/contact" method="POST" onsubmit="return handleSubmit(event)">
                     <div class="input">
                         <input type="text" name="name" id="name" placeholder="Entrez Votre Nom" required>
                         <i class="far fa-envelope"></i>
@@ -214,7 +214,7 @@
                         <i class="far fa-envelope"></i>
                     </div>
 
-                    <button type="submit" class="btn" mailto>Envoyer</button>
+                    <button type="submit" class="btn">Envoyer</button>
                 </form>
             </div>
 
@@ -244,6 +244,28 @@
             </p>
         </footer>
     </section>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Empêche l'envoi par défaut du formulaire
+            const formData = new FormData(event.target);
+    
+            fetch('/api/contact', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                const feedback = document.getElementById('form-feedback');
+                feedback.style.display = 'block';
+                feedback.textContent = 'Message envoyé avec succès !'; // Message de succès
+            })
+            .catch(error => {
+                const feedback = document.getElementById('form-feedback');
+                feedback.style.display = 'block';
+                feedback.textContent = 'Erreur lors de l\'envoi du message.'; // Message d'erreur
+            });
+        }
+    </script>
     <script src="js/modernizr-custom.js"></script>
     <script>
         if (!Modernizr.backgroundcliptext){
