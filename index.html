@@ -8,7 +8,7 @@
     <title>PAISIBLE</title>
     <link rel="shortcut icon" href="images/perso/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/b42f35f563.js" crossorigin="anonymous" defer></script>
+    <script src="https://kit.fontawesome.com/b42f35f563.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -200,18 +200,17 @@
                 Contact
             </h2>
             <div class="input-box">
-                <form action="" onsubmit="sendEmail();">
+                <form onsubmit="sendEmail()">
                     <div class="input">
-                        <input type="text" name="name" id="name" placeholder="Votre Nom" required>
+                        <input type="text" id="name" placeholder="Votre Nom" required>
                         <i class="far fa-envelope"></i>
                     </div>
                     <div class="input">
-                        <input type="email" name="email" id="email" placeholder="VotreAdresse@email.com" required>
+                        <input type="email" id="email" placeholder="VotreAdresse@email.com" required>
                         <i class="far fa-envelope"></i>
                     </div>
                     <div class="input">
-                        <textarea type="email" name="message" id="message" placeholder="Laissez moi un message"
-                            required></textarea>
+                        <textarea id="message" placeholder="Laissez moi un message"></textarea>
                         <i class="far fa-envelope"></i>
                     </div>
 
@@ -250,30 +249,16 @@
         function sendEmail() {
             Email.send({
                 Host: "smtp.gmail.com",
-                Username: "your-email@gmail.com",
-                Password: "your-password",
-                To: "your-email@gmail.com",
-                From: "your-email@gmail.com",
+                Username: "m.paisible7@gmail.com",
+                Password: "tbhkdyotxsxuqvzj",
+                To: "m.paisible7@gmail.com",
+                From: document.getElementById('email'),
                 Subject: "Hello",
                 Body: "Hello"
                 }).then(
-                    message => alert("Mail sent successfully")
+                    message => alert(message)
                     );
                     }
-        // function sendEmail() {
-        //     Email.send({
-        //         Host: "smtp.gmail.com",
-        //         Username: "m.paisible7@gmail.com",
-        //         Password: "Paixible7#MP",
-        //         To: 'm.paisible7@gmail.com',
-        //         From: document.getElementById('email').value,
-        //         Subject: "This is the subject",
-        //         Body: "And this is the body"
-        //     }).then(
-        //         message => alert(message)
-        //     );
-        // } -->
-
     </script>
 
     <script src="js/script.js"></script>
