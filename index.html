@@ -8,7 +8,7 @@
     <title>PAISIBLE</title>
     <link rel="shortcut icon" href="images/perso/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/b42f35f563.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b42f35f563.js" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
@@ -92,7 +92,7 @@
                         <div class="tech-item">
                             <img src="images/skill/bootstrap.png" alt="">
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="grid-card">
@@ -100,7 +100,7 @@
                         <span>Dev. Back-End</span>
                     </i>
                     <div class="tech">
-                        
+
                         <div class="tech-item">
                             <img src="images/skill/python.png" alt="">
                         </div>
@@ -110,7 +110,7 @@
                         <div class="tech-item">
                             <img src="images/skill/flutter.png" alt="">
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="grid-card">
@@ -124,8 +124,8 @@
                         <div class="tech-item">
                             <img src="images/skill/adobeI.png" alt="">
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
                 <div class="grid-card">
@@ -142,7 +142,7 @@
                         <div class="tech-item">
                             <img src="images/skill/figma.png" alt="">
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
@@ -200,17 +200,18 @@
                 Contact
             </h2>
             <div class="input-box">
-                <form action="">
+                <form action="" onsubmit="sendEmail();">
                     <div class="input">
                         <input type="text" name="name" id="name" placeholder="Votre Nom" required>
                         <i class="far fa-envelope"></i>
                     </div>
                     <div class="input">
-                        <input type="email" name="mail" id="mail" placeholder="VotreAdresse@email.com" required>
+                        <input type="email" name="email" id="email" placeholder="VotreAdresse@email.com" required>
                         <i class="far fa-envelope"></i>
                     </div>
                     <div class="input">
-                        <textarea type="email" name="message" id="message" placeholder="Laissez moi un message" required></textarea>
+                        <textarea type="email" name="message" id="message" placeholder="Laissez moi un message"
+                            required></textarea>
                         <i class="far fa-envelope"></i>
                     </div>
 
@@ -244,36 +245,38 @@
             </p>
         </footer>
     </section>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
-        function handleSubmit(event) {
-            event.preventDefault(); // Empêche l'envoi par défaut du formulaire
-            const formData = new FormData(event.target);
-    
-            fetch('/api/contact', {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                const feedback = document.getElementById('form-feedback');
-                feedback.style.display = 'block';
-                feedback.textContent = 'Message envoyé avec succès !'; // Message de succès
-            })
-            .catch(error => {
-                const feedback = document.getElementById('form-feedback');
-                feedback.style.display = 'block';
-                feedback.textContent = 'Erreur lors de l\'envoi du message.'; // Message d'erreur
-            });
-        }
-    </script>
-    <script src="js/modernizr-custom.js"></script>
-    <script>
-        if (!Modernizr.backgroundcliptext){
-            document.body.classList.add('isNot');
-        }
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "your-email@gmail.com",
+                Password: "your-password",
+                To: "your-email@gmail.com",
+                From: "your-email@gmail.com",
+                Subject: "Hello",
+                Body: "Hello"
+                }).then(
+                    message => alert("Mail sent successfully")
+                    );
+                    }
+        // function sendEmail() {
+        //     Email.send({
+        //         Host: "smtp.gmail.com",
+        //         Username: "m.paisible7@gmail.com",
+        //         Password: "Paixible7#MP",
+        //         To: 'm.paisible7@gmail.com',
+        //         From: document.getElementById('email').value,
+        //         Subject: "This is the subject",
+        //         Body: "And this is the body"
+        //     }).then(
+        //         message => alert(message)
+        //     );
+        // } -->
+
     </script>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
