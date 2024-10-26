@@ -200,7 +200,7 @@
                 Contact
             </h2>
             <div class="input-box">
-                <form onsubmit="sendEmail()">
+                <form action="#">
                     <div class="input">
                         <input type="text" id="name" placeholder="Votre Nom" required>
                         <i class="far fa-envelope"></i>
@@ -245,22 +245,8 @@
         </footer>
     </section>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail() {
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "m.paisible7@gmail.com",
-                Password: "tbhkdyotxsxuqvzj",
-                To: "m.paisible7@gmail.com",
-                From: document.getElementById('email'),
-                Subject: "Hello",
-                Body: "Hello"
-                }).then(
-                    message => alert(message)
-                    );
-                    }
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/mail.js"></script>
     <script src="js/script.js"></script>
 </body>
 
