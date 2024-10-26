@@ -8,6 +8,8 @@
     <title>PAISIBLE</title>
     <link rel="shortcut icon" href="images/perso/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/b42f35f563.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
@@ -201,7 +203,7 @@
                 Contact
             </h2>
             <div class="input-box">
-                <form action="#">
+                <form novalidate onsubmit="sendMail(); return false;">
                     <div class="input">
                         <input type="text" id="name" placeholder="Votre Nom" required>
                         <i class="far fa-id-card"></i>
@@ -215,7 +217,7 @@
                         <i class="far fa-inbox"></i>
                     </div>
 
-                    <button type="submit" class="btn" onclick="sendMail();">Envoyer</button>
+                    <button type="submit" class="btn">Envoyer</button>
                 </form>
             </div>
 
