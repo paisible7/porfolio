@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="images/perso/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/b42f35f563.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -203,7 +204,7 @@
                 <form action="#">
                     <div class="input">
                         <input type="text" id="name" placeholder="Votre Nom" required>
-                        <i class="far fa-envelope"></i>
+                        <i class="far fa-id-card"></i>
                     </div>
                     <div class="input">
                         <input type="email" id="email" placeholder="VotreAdresse@email.com" required>
@@ -211,10 +212,10 @@
                     </div>
                     <div class="input">
                         <textarea id="message" placeholder="Laissez moi un message"></textarea>
-                        <i class="far fa-envelope"></i>
+                        <i class="far fa-inbox"></i>
                     </div>
 
-                    <button type="submit" class="btn">Envoyer</button>
+                    <button type="submit" class="btn" onclick="sendMail();">Envoyer</button>
                 </form>
             </div>
 
@@ -244,7 +245,6 @@
             </p>
         </footer>
     </section>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/mail.js"></script>
     <script src="js/script.js"></script>
