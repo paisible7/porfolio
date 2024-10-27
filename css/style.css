@@ -894,7 +894,7 @@ button.btn:hover {
         font-size: 1rem;
     }
 
-    .input-box input::placeholder {
+    .input-box form .input textarea::placeholder {
         font-size: 1rem;
     }
 
