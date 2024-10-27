@@ -691,7 +691,9 @@ button.btn:hover {
     header {
         padding: 1rem 1rem;
         gap: 1rem;
-        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     header .logo {
@@ -700,6 +702,16 @@ button.btn:hover {
 
     header .visit-btn {
         display: none;
+    }
+
+    .nav.active {
+        display: flex;
+        padding: .25rem 0.25rem;
+        height: 20rem;
+    }
+
+    .nav.nav.active .nav_link {
+        border: 2px solid black;
     }
 
 
@@ -782,7 +794,8 @@ button.btn:hover {
         margin-top: 1rem;
         width: 100%;
         padding: 1rem;
-        background: var(--fg);
+        background: var(--bg);
+        border: white solid 1px;
         border-radius: 3rem;
         display: none;
     }
@@ -791,15 +804,14 @@ button.btn:hover {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 90%;
+    }
+    .nav.active ul li {
+        margin: .5rem;
     }
 
-    .nav ul li a {
-        color: red;
-    }
 
-    .nav.active {
-        display: block;
-    }
+   
 
     .about-container .img {
         width: 20rem;
