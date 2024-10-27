@@ -13,8 +13,13 @@
     --bg: black;
     --fg: white;
 }
-
-a:active , a:link, a:focus, a:checked {
+a,
+a:active,
+a:link,
+a:visited
+a:enabled
+a:focus,
+a:checked {
     color: white;
 }
 
@@ -646,20 +651,20 @@ button.btn:hover {
         overflow: hidden;
     }
 
-.info-box h3 {
-    font-size: 1.25rem;
-}
+    .info-box h3 {
+        font-size: 1.25rem;
+    }
 
-.info-box h1 {
-    font-size: 2.5rem;
-}
+    .info-box h1 {
+        font-size: 2.5rem;
+    }
 
-.info-box span {
-    background: var(--linear);
-    background-clip: text;
-    color: transparent;
-    font-size: 2rem;
-}
+    .info-box span {
+        background: var(--linear);
+        background-clip: text;
+        color: transparent;
+        font-size: 2rem;
+    }
 
     .skill-info {
         flex-direction: column;
@@ -709,15 +714,46 @@ button.btn:hover {
         height: 15rem;
     }
 
-
-    .input-box input {
-        padding: 1rem 2rem;
-        font-size: 1.8rem;
+    .input-box {
+        width: 80%;
     }
 
-    .input-box .input::placeholder {
-        font-size: 1.5rem;
+    .input-box form {
+        gap: 1.5rem;
     }
+
+
+    .input-box form .input input {
+        padding: 1rem 1rem;
+        font-size: 1.2rem;
+        border-radius: 1.5rem;
+    }
+
+    .input-box form .input input::placeholder {
+        font-size: 1.2rem;
+    }
+
+
+    .input-box form .input textarea {
+        border-radius: 1.5rem;
+        border: .5px solid black;
+        padding: 1rem 1rem;
+        font-size: 1.2rem;
+        width: 100%;
+        resize: none;
+    }
+
+
+    .input-box form .input textarea::placeholder {
+        font-size: 1.2rem;
+    }
+
+    button.btn {
+        border-radius: 1.5rem;
+        padding: .3rem 2rem;
+        font-size: 1.2rem;
+    }
+
 
 
     .grid {
@@ -731,7 +767,7 @@ button.btn:hover {
     .section-title {
         font-size: 3rem;
     }
-} 
+}
 
 
 @media (max-width : 600px) {
@@ -754,10 +790,10 @@ button.btn:hover {
     .nav ul {
         flex-direction: column;
         justify-content: center;
-        align-items:center;
+        align-items: center;
     }
 
-    .nav ul li a{
+    .nav ul li a {
         color: red;
     }
 
@@ -772,7 +808,7 @@ button.btn:hover {
 
     .skill-info .img {
         width: 20rem;
-        height: 25rem; 
+        height: 25rem;
     }
 
 }
@@ -792,16 +828,16 @@ button.btn:hover {
         font-size: 1.25rem;
     }
 
-.btn {
-    border-radius: 3rem;
-    padding: .5rem 1.5rem;
-    border: .5px solid white;
-    font-size: .8rem;
-    cursor: pointer;
-    font-weight: 500;
-    text-wrap: nowrap;
-    transition: .3s ease-in-out;
-}
+    .btn {
+        border-radius: 3rem;
+        padding: .5rem 1.5rem;
+        border: .5px solid white;
+        font-size: .8rem;
+        cursor: pointer;
+        font-weight: 500;
+        text-wrap: nowrap;
+        transition: .3s ease-in-out;
+    }
 
     .socials i {
         font-size: 1.25rem;
@@ -814,13 +850,13 @@ button.btn:hover {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
     }
-    
+
     .projet-card {
         padding: 1rem 1rem;
         gap: 1rem;
         border: .5px solid white;
     }
-    
+
     .projet-card .projet_img {
         width: 16rem;
         height: 9rem;
@@ -830,33 +866,35 @@ button.btn:hover {
         overflow: hidden;
         border-radius: 1rem;
     }
-    
+
     .projet-card .projet_img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    .input-box input {
-        border-radius: 3rem;
+    .input-box form .input input {
         border: .5px solid black;
-        padding: 1rem 3.7rem;
-        font-size: 1.1rem;
+        padding:.75rem 0rem 0.75rem 3rem ;
+        font-size: 1rem;
     }
-    
+    .input-box form .input input::placeholder {
+        font-size: 1rem;
+    }
+
     .input-box input::placeholder {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+
+
+    .input-box form .input textarea {
+        padding: .75rem 0rem 4rem 3rem;
+        font-size: 1rem;
     }
 
     .input i {
         position: absolute;
-        font-size: 1.85rem;
-    }
-    
-    button.btn {
-        padding: .3rem 3rem;
-        cursor: pointer;
-        font-size: 1.25rem;
+        font-size: .85rem;
     }
 
     .contact footer {
@@ -878,21 +916,18 @@ button.btn:hover {
 
     .contact footer ul li {
         padding: .25rem .8rem;
-    
+
     }
 
-.contact footer ul li a {
-    font-size: .95rem;
-}
+    .contact footer ul li a {
+        font-size: .95rem;
+    }
 
-.copyright {
-    font-size: .75rem;
-}
+    .copyright {
+        font-size: .75rem;
+    }
 
-.copyright span {
-    font-size: .65rem;
-}
-}
-
-@media (max-width: 360px) {
+    .copyright span {
+        font-size: .65rem;
+    }
 }
