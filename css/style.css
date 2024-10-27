@@ -892,9 +892,9 @@ button.btn:hover {
         font-size: 1rem;
     }
 
-    .input i {
+    .input-box form.input i {
         position: absolute;
-        font-size: .85rem;
+        font-size: .35rem;
     }
 
     .contact footer {
