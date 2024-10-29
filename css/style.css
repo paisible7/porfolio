@@ -153,14 +153,10 @@ header {
 
 
 section {
-    min-height: 70vh;
-    padding: 6rem 12%;
+    min-height: 100vh;
+    padding: 8rem 12%;
     position: relative;
     width: 100%;
-}
-
-section.about {
-    height: 100vh;
 }
 
 .about {
@@ -274,14 +270,7 @@ section.about {
     text-align: center;
     font-size: 4rem;
     font-weight: 600;
-    margin-bottom: 5rem;
-}
-
-.skill {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+    margin-bottom: 3rem;
 }
 
 .skill-info {
@@ -402,17 +391,8 @@ section.about {
 }
 
 
-.projet {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-
 .projet-grid {
-    display: flex;
-    height: 60vh;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
@@ -475,14 +455,14 @@ section.about {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem 12%;
     flex-direction: column;
+    padding: 0;
 
 }
 
 .contact .contact-container {
     width: 100%;
-    margin-bottom: 10rem;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -495,15 +475,14 @@ section.about {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5rem;
     justify-content: center;
     text-align: center;
-    width: 70%;
+    width: 50%;
 }
 
 .input-box form {
     width: 100%;
-    gap: 2rem;
+    gap: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -575,7 +554,6 @@ button.btn:hover {
 
 .contact footer {
     bottom: 0;
-    position: absolute;
     height: 20vh;
     width: 100%;
     display: flex;
