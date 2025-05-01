@@ -377,64 +377,74 @@
 
     <script>
         function startCountdown() {
-    const daysElement = document.getElementById('days');
-    const hoursElement = document.getElementById('hours');
-    const minutesElement = document.getElementById('minutes');
-    const secondsElement = document.getElementById('seconds');
-    const countdownBanner = document.getElementById('countdownBanner');
-
-    // Date fixe : 7 mai à 20h
-    const targetDate = new Date(2024, 4, 7, 20, 0, 0); // Les mois vont de 0 à 11 (janvier à décembre)
-
-    // Fermeture de la bannière
-    document.getElementById('closeBanner').addEventListener('click', () => {
-        countdownBanner.style.display = 'none';
-        localStorage.setItem('bannerClosed', 'true');
-    });
-
-    // Vérifier si la date est dépassée
-    function checkDate() {
-        const now = new Date();
-        if(now > targetDate) {
-            countdownBanner.innerHTML = `
-                <div class="countdown-content" style="width: 100%; justify-content: center;">
-                    <span class="countdown-text">Le nouveau design est disponible !</span>
-                    <a href="https://nouveau-portfolio.paisible.dev" class="btn" style="margin-left: 20px;">
-                        Voir maintenant
-                    </a>
-                </div>
-            `;
-            return true;
+            const daysElement = document.getElementById('days');
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+            const secondsElement = document.getElementById('seconds');
+            const countdownBanner = document.getElementById('countdownBanner');
+    
+            // Date fixe : 7 mai 2025 à 20h
+            const targetDate = new Date(2025, 4, 7, 20, 0, 0); // Les mois vont de 0 à 11
+    
+            // Fermeture de la bannière
+            const closeBtn = document.getElementById('closeBanner');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    countdownBanner.style.display = 'none';
+                    localStorage.setItem('bannerClosed', 'true');
+                });
+            }
+    
+            // Vérifier si la date est dépassée
+            function checkDate() {
+                const now = new Date();
+                if (now >= targetDate) {
+                    countdownBanner.innerHTML = `
+                        <div class="countdown-content" style="width: 100%; justify-content: center;">
+                            <span class="countdown-text">Le nouveau design est disponible !</span>
+                            <a href="https://nouveau-portfolio.paisible.dev" class="btn" style="margin-left: 20px;">
+                                Voir maintenant
+                            </a>
+                        </div>
+                    `;
+                    return true;
+                }
+                return false;
+            }
+    
+            // Afficher/cacher selon la date et le localStorage
+            if (!checkDate() && localStorage.getItem('bannerClosed') !== 'true') {
+                countdownBanner.style.display = 'flex';
+            }
+    
+            function updateTimer() {
+                if (checkDate()) {
+                    clearInterval(timerInterval); // On arrête le timer une fois la date atteinte
+                    return;
+                }
+    
+                const now = new Date();
+                const distance = targetDate - now;
+    
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                daysElement.textContent = days.toString().padStart(2, '0');
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+            }
+    
+            updateTimer();
+            const timerInterval = setInterval(updateTimer, 1000);
         }
-        return false;
-    }
-
-    // Afficher/cacher selon la date et le localStorage
-    if(!checkDate() && localStorage.getItem('bannerClosed') !== 'true') {
-        countdownBanner.style.display = 'flex';
-    }
-
-    function updateTimer() {
-        if(checkDate()) return;
-
-        const now = new Date();
-        const distance = targetDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        daysElement.textContent = days.toString().padStart(2, '0');
-        hoursElement.textContent = hours.toString().padStart(2, '0');
-        minutesElement.textContent = minutes.toString().padStart(2, '0');
-        secondsElement.textContent = seconds.toString().padStart(2, '0');
-    }
-
-    updateTimer();
-    const timerInterval = setInterval(updateTimer, 1000);
-}
+    
+        // Appelle la fonction une fois que la page est chargée
+        window.addEventListener('DOMContentLoaded', startCountdown);
     </script>
+    
 </body>
 
 </html>
