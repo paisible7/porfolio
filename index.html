@@ -109,6 +109,45 @@
     background: #ff00ff;
     transform: rotate(90deg);
 }
+
+@media (max-width: 768px) {
+    .countdown-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .countdown-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .countdown-text {
+        font-size: 1rem;
+    }
+
+    .countdown-timer {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .countdown-item {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    .countdown-number {
+        font-size: 1.2rem;
+    }
+
+    .close-banner {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+}
+
 </style>
 
 <body>
@@ -383,10 +422,8 @@
             const secondsElement = document.getElementById('seconds');
             const countdownBanner = document.getElementById('countdownBanner');
     
-            // Date fixe : 7 mai 2025 à 20h
-            const targetDate = new Date(2025, 4, 7, 20, 0, 0); // Les mois vont de 0 à 11
+            const targetDate = new Date(2025, 4, 7, 20, 0, 0); 
     
-            // Fermeture de la bannière
             const closeBtn = document.getElementById('closeBanner');
             if (closeBtn) {
                 closeBtn.addEventListener('click', () => {
@@ -395,14 +432,13 @@
                 });
             }
     
-            // Vérifier si la date est dépassée
             function checkDate() {
                 const now = new Date();
                 if (now >= targetDate) {
                     countdownBanner.innerHTML = `
                         <div class="countdown-content" style="width: 100%; justify-content: center;">
                             <span class="countdown-text">Le nouveau design est disponible !</span>
-                            <a href="https://nouveau-portfolio.paisible.dev" class="btn" style="margin-left: 20px;">
+                            <a href="paisible.me/new.html class="btn" style="margin-left: 20px;">
                                 Voir maintenant
                             </a>
                         </div>
@@ -412,14 +448,13 @@
                 return false;
             }
     
-            // Afficher/cacher selon la date et le localStorage
             if (!checkDate() && localStorage.getItem('bannerClosed') !== 'true') {
                 countdownBanner.style.display = 'flex';
             }
     
             function updateTimer() {
                 if (checkDate()) {
-                    clearInterval(timerInterval); // On arrête le timer une fois la date atteinte
+                    clearInterval(timerInterval); 
                     return;
                 }
     
@@ -441,7 +476,6 @@
             const timerInterval = setInterval(updateTimer, 1000);
         }
     
-        // Appelle la fonction une fois que la page est chargée
         window.addEventListener('DOMContentLoaded', startCountdown);
     </script>
     
