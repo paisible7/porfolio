@@ -15,6 +15,102 @@
     <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
 </head>
 
+<style>
+.countdown-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        #000318 10%,     
+        #009dff 50%,        
+        #ff00ff 90%       
+    );
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 -5px 25px rgba(0, 157, 255, 0.2);
+    font-family: 'Poppins', sans-serif;
+    border-top: 2px solid rgba(0, 157, 255, 0.3);
+    animation: gradientFlow 8s ease infinite;
+    background-size: 300% 300%;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.countdown-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.countdown-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 20px;
+    font-weight: 700;
+}
+
+.countdown-item {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 12px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.countdown-number {
+    font-size: 1.4rem;
+    margin-bottom: 2px;
+    color: white;
+}
+
+.countdown-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.close-banner {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.close-banner:hover {
+    background: #ff00ff;
+    transform: rotate(90deg);
+}
+</style>
+
 <body>
 
     <header class="header">
@@ -249,9 +345,96 @@
             </p>
         </footer>
     </section>
+
+    <!-- Countdown Banner -->
+<div class="countdown-banner" id="countdownBanner">
+    <div class="countdown-content">
+        <span class="countdown-text">Nouveau design disponible dans:</span>
+        <div class="countdown-timer">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">7</div>
+                <div class="countdown-label">Jours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Heures</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Secondes</div>
+            </div>
+        </div>
+    </div>
+    <button class="close-banner" id="closeBanner">&times;</button>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/mail.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+        function startCountdown() {
+    const daysElement = document.getElementById('days');
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
+    const countdownBanner = document.getElementById('countdownBanner');
+
+    // Date fixe : 7 mai à 20h
+    const targetDate = new Date(2024, 4, 7, 20, 0, 0); // Les mois vont de 0 à 11 (janvier à décembre)
+
+    // Fermeture de la bannière
+    document.getElementById('closeBanner').addEventListener('click', () => {
+        countdownBanner.style.display = 'none';
+        localStorage.setItem('bannerClosed', 'true');
+    });
+
+    // Vérifier si la date est dépassée
+    function checkDate() {
+        const now = new Date();
+        if(now > targetDate) {
+            countdownBanner.innerHTML = `
+                <div class="countdown-content" style="width: 100%; justify-content: center;">
+                    <span class="countdown-text">Le nouveau design est disponible !</span>
+                    <a href="https://nouveau-portfolio.paisible.dev" class="btn" style="margin-left: 20px;">
+                        Voir maintenant
+                    </a>
+                </div>
+            `;
+            return true;
+        }
+        return false;
+    }
+
+    // Afficher/cacher selon la date et le localStorage
+    if(!checkDate() && localStorage.getItem('bannerClosed') !== 'true') {
+        countdownBanner.style.display = 'flex';
+    }
+
+    function updateTimer() {
+        if(checkDate()) return;
+
+        const now = new Date();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysElement.textContent = days.toString().padStart(2, '0');
+        hoursElement.textContent = hours.toString().padStart(2, '0');
+        minutesElement.textContent = minutes.toString().padStart(2, '0');
+        secondsElement.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
+}
+    </script>
 </body>
 
 </html>
