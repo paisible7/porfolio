@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAISIBLE - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000318;
+            color: white;
+            transition: all 0.5s ease;
+        }
+
+        body.light-mode {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .light-mode .glass-effect {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .text-gray-300 {
+            color: #666;
+        }
+
+        .light-mode .bg-black\/20 {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .light-mode .bg-white\/5 {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .light-mode .border-white\/10 {
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #009dff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(90deg, #009dff, #ff00ff);
+        }
+        
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 157, 255, 0.3);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 157, 255, 0.2), 0 10px 10px -5px rgba(0, 157, 255, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #009dff, #ff00ff);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .profile-img {
+            box-shadow: 0 0 50px rgba(0, 157, 255, 0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #000318;
+        }
+
+        .light-mode ::-webkit-scrollbar-track {
+            background: #f8f9fa;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#009dff, #ff00ff);
+            border-radius: 10px;
+        }
+        
+        /* Animation for section titles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 25%;
+            background: linear-gradient(90deg, #009dff, #ff00ff);
+            border-radius: 2px;
+        }
+
+        /* Splash screen */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000318, #0a0a2a);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+
+        .splash-logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        .splash-text {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #009dff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .splash-loader {
+            width: 80px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .splash-loader::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, #009dff, #ff00ff);
+            animation: loader 2.5s ease-in-out forwards;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes loader {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Music player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .music-player {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .music-player button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 0 5px;
+            outline: none;
+        }
+
+        .light-mode .music-player button {
+            color: #333;
+        }
+
+        .music-info {
+            margin-left: 10px;
+            font-size: 0.8rem;
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .light-mode .music-info {
+            color: #333;
+        }
+
+        .volume-control {
+            width: 80px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="animate__animated animate__fadeIn">
+        <img src="images/perso/logoMP.png" alt="Logo" class="splash-logo">
+        <div class="splash-text">PAISIBLE</div>
+        <div class="splash-loader"></div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+        <div class="music-info">Piano Melody</div>
+        <input type="range" id="volume-control" class="volume-control" min="0" max="1" step="0.1" value="0.5">
+        <audio id="bg-music" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed top-20 right-6 z-50 bg-black/80 border border-white/10 rounded-full p-3 text-white hover:bg-gradient-to-r from-blue-500 to-purple-500 transition duration-300">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Header/Navbar -->
+    <header class="fixed top-4 left-1/2 transform -translate-x-1/2 glass-effect rounded-full py-2 px-6 z-50 w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2">
+        <div class="flex items-center justify-between">
+            <a href="#" class="flex items-center">
+                <img src="images/perso/logoMP.png" alt="Logo" class="w-10 h-10 md:w-12 md:h-12">
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link text-white hover:text-gray-300 text-sm md:text-base font-medium">A Propos</a>
+                <a href="#skills" class="nav-link text-white hover:text-gray-300 text-sm md:text-base font-medium">Compétences</a>
+                <a href="#projects" class="nav-link text-white hover:text-gray-300 text-sm md:text-base font-medium">Projets</a>
+                <a href="#contact" class="nav-link text-white hover:text-gray-300 text-sm md:text-base font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/paisible7" target="_blank" class="hidden md:block gradient-bg text-white px-4 py-2 rounded-full text-sm md:text-base font-medium hover:opacity-90 transition duration-300">
+                    Mon GitHub
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="nav-link text-white hover:text-gray-300 text-base font-medium">A Propos</a>
+                <a href="#skills" class="nav-link text-white hover:text-gray-300 text-base font-medium">Compétences</a>
+                <a href="#projects" class="nav-link text-white hover:text-gray-300 text-base font-medium">Projets</a>
+                <a href="#contact" class="nav-link text-white hover:text-gray-300 text-base font-medium">Contact</a>
+                <a href="https://github.com/paisible7" target="_blank" class="gradient-bg text-white px-4 py-2 rounded-full text-base font-medium text-center hover:opacity-90 transition duration-300">
+                    Mon GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero/About Section -->
+    <section id="about" class="min-h-screen flex items-center justify-center pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="w-full lg:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="profile-img w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/20">
+                        <img src="images/perso/moi111.png" alt="M. PAISIBLE" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="absolute -bottom-5 -right-5 bg-black/80 rounded-full p-3 border border-white/20">
+                        <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center">
+                            <span class="text-white text-xl font-bold">1+</span>
+                        </div>
+                        <span class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-medium">Ans d'expérience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-1/2 text-center lg:text-left">
+                <h3 class="text-lg md:text-xl text-gray-300 mb-2">Bonjour, je suis</h3>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">M. PAISIBLE</h1>
+                <h2 class="text-2xl md:text-3xl gradient-text font-semibold mb-6">Développeur Front-End</h2>
+                
+                <p class="text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0">
+                    Passionné par la création d'interfaces utilisateur modernes et intuitives. 
+                    Je combine design et technologie pour créer des expériences digitales mémorables.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                    <a href="assets/CV.pdf" target="_blank" class="w-full sm:w-auto border border-white/30 text-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition duration-300 font-medium text-center">
+                        Télécharger mon CV
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto gradient-bg text-white px-6 py-3 rounded-full hover:opacity-90 transition duration-300 font-medium text-center">
+                        Me Contacter
+                    </a>
+                </div>
+                
+                <div class="flex items-center justify-center lg:justify-start space-x-6">
+                    <a href="https://github.com/paisible7" target="_blank" class="text-white hover:text-gray-300 text-2xl transition duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-2xl transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-2xl transition duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-2xl transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16">Mes Compétences</h2>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Front-End Card -->
+                    <div class="glass-effect rounded-3xl p-6 hover:bg-white/10 transition duration-300 border border-white/10">
+                        <div class="flex items-center mb-4">
+                            <div class="gradient-bg rounded-lg p-3 mr-4">
+                                <i class="fas fa-code text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Front-End</h3>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/javascript.png" alt="JavaScript" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/vuejs.png" alt="Vue.js" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/bootstrap.png" alt="Bootstrap" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/react.png" alt="React" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/tailwind.png" alt="Tailwind CSS" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/html.png" alt="HTML5" class="h-8 w-8 object-contain">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Back-End Card -->
+                    <div class="glass-effect rounded-3xl p-6 hover:bg-white/10 transition duration-300 border border-white/10">
+                        <div class="flex items-center mb-4">
+                            <div class="gradient-bg rounded-lg p-3 mr-4">
+                                <i class="fas fa-server text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Back-End</h3>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/python.png" alt="Python" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/nodejs.png" alt="Node.js" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/flutter.png" alt="Flutter" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/php.png" alt="PHP" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/mongodb.png" alt="MongoDB" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/mysql.png" alt="MySQL" class="h-8 w-8 object-contain">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Design Card -->
+                    <div class="glass-effect rounded-3xl p-6 hover:bg-white/10 transition duration-300 border border-white/10">
+                        <div class="flex items-center mb-4">
+                            <div class="gradient-bg rounded-lg p-3 mr-4">
+                                <i class="fas fa-palette text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Design</h3>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/adobePS.png" alt="Photoshop" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/adobeI.png" alt="Illustrator" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/figma.png" alt="Figma" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/xd.png" alt="Adobe XD" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/ae.png" alt="After Effects" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/blender.png" alt="Blender" class="h-8 w-8 object-contain">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools Card -->
+                    <div class="glass-effect rounded-3xl p-6 hover:bg-white/10 transition duration-300 border border-white/10">
+                        <div class="flex items-center mb-4">
+                            <div class="gradient-bg rounded-lg p-3 mr-4">
+                                <i class="fas fa-tools text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Outils</h3>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/firebase.png" alt="Firebase" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/github.png" alt="GitHub" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/git.png" alt="Git" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/vscode.png" alt="VS Code" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/docker.png" alt="Docker" class="h-8 w-8 object-contain">
+                            </div>
+                            <div class="tech-icon bg-white/5 rounded-lg p-3 flex items-center justify-center border border-white/10">
+                                <img src="images/skill/postman.png" alt="Postman" class="h-8 w-8 object-contain">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2">
+                    <div class="relative">
+                        <div class="rounded-3xl overflow-hidden border-2 border-white/20">
+                            <img src="images/perso/moi4.jpg" alt="M. PAISIBLE au travail" class="w-full h-auto object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-black/80 rounded-full p-3 border border-white/20">
+                            <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center">
+                                <span class="text-white text-xl font-bold">100%</span>
+                            </div>
+                            <span class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-medium">Satisfaction</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 glass-effect rounded-3xl p-6 border border-white/10">
+                        <h3 class="text-xl font-semibold mb-4">Mon Approche</h3>
+                        <p class="text-gray-300 mb-4">
+                            Je crois en une approche centrée sur l'utilisateur, combinant esthétique et fonctionnalité pour créer des solutions digitales qui répondent aux besoins réels.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-1">
+                                <div class="h-2 bg-white/10 rounded-full">
+                                    <div class="h-2 rounded-full gradient-bg" style="width: 95%"></div>
+                                </div>
+                                <span class="text-sm text-gray-300">UI/UX Design</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="h-2 bg-white/10 rounded-full">
+                                    <div class="h-2 rounded-full gradient-bg" style="width: 90%"></div>
+                                </div>
+                                <span class="text-sm text-gray-300">Développement</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="h-2 bg-white/10 rounded-full">
+                                    <div class="h-2 rounded-full gradient-bg" style="width: 85%"></div>
+                                </div>
+                                <span class="text-sm text-gray-300">Résolution de problèmes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">Mes Projets</h2>
+            <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+                Découvrez une sélection de mes réalisations récentes qui illustrent mon expertise et ma créativité.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card glass-effect rounded-3xl overflow-hidden border border-white/10">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/projet/screenshot.png" alt="Immochaine" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Symfony</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Immochaine</h3>
+                        <p class="text-gray-300 mb-4">
+                            Une application web complète pour l'immobilier avec gestion des propriétés, recherche avancée et système de réservation.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="404/index.html" class="flex-1 text-center border border-white/30 text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition duration-300 text-sm">
+                                Voir la démo
+                            </a>
+                            <a href="https://github.com/paisiible7" target="_blank" class="flex-1 text-center gradient-bg text-white px-4 py-2 rounded-full hover:opacity-90 transition duration-300 text-sm">
+                                Code source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card glass-effect rounded-3xl overflow-hidden border border-white/10">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/projet/secureJs.jpeg" alt="Secure JS" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full ml-2">Sécurité</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Secure JS</h3>
+                        <p class="text-gray-300 mb-4">
+                            Une bibliothèque JavaScript pour sécuriser les applications web avec des fonctionnalités avancées de protection contre les attaques.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="404/index.html" class="flex-1 text-center border border-white/30 text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition duration-300 text-sm">
+                                Voir la démo
+                            </a>
+                            <a href="https://github.com/paisible7/Secure-Js.git" target="_blank" class="flex-1 text-center gradient-bg text-white px-4 py-2 rounded-full hover:opacity-90 transition duration-300 text-sm">
+                                Code source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card glass-effect rounded-3xl overflow-hidden border border-white/10">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="images/projet/lanceur.png" alt="Route de l'espoir" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Flutter</span>
+                            <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full ml-2">Mobile</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Route de l'espoir</h3>
+                        <p class="text-gray-300 mb-4">
+                            Application mobile cross-platform pour mon groupe scout avec gestion des événements, messagerie et galerie photo.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="404/index.html" class="flex-1 text-center border border-white/30 text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition duration-300 text-sm">
+                                Voir la démo
+                            </a>
+                            <a href="https://github.com/paisible7/scoutApp.git" target="_blank" class="flex-1 text-center gradient-bg text-white px-4 py-2 rounded-full hover:opacity-90 transition duration-300 text-sm">
+                                Code source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/paisible7" target="_blank" class="inline-flex items-center gradient-bg text-white px-6 py-3 rounded-full hover:opacity-90 transition duration-300 font-medium">
+                    Voir plus de projets
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-black/20 relative">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl"></div>
+            <div class="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-purple-500/10 blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto relative">
+            <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">Contactez-moi</h2>
+            <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+                Vous avez un projet en tête ou souhaitez discuter d'une collaboration ? Envoyez-moi un message et je vous répondrai dans les plus brefs délais.
+            </p>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="w-full lg:w-1/2 glass-effect rounded-3xl p-8 border border-white/10">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="relative">
+                            <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" id="name" placeholder="Votre nom" class="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-12 pr-6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div class="relative">
+                            <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="email" id="email" placeholder="Votre email" class="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-12 pr-6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div class="relative">
+                            <i class="fas fa-comment absolute left-4 top-6 text-gray-400"></i>
+                            <textarea id="message" rows="5" placeholder="Votre message" class="w-full bg-white/5 border border-white/10 rounded-3xl py-4 pl-12 pr-6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full gradient-bg text-white py-4 rounded-full font-semibold hover:opacity-90 transition duration-300 flex items-center justify-center">
+                            Envoyer le message
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="w-full lg:w-1/2">
+                    <div class="glass-effect rounded-3xl p-8 h-full border border-white/10 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-6">Informations de contact</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="gradient-bg rounded-full p-3 mr-4 flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Localisation</h4>
+                                        <p class="text-gray-400">Paris, France</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="gradient-bg rounded-full p-3 mr-4 flex-shrink-0">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Email</h4>
+                                        <p class="text-gray-400">contact@paisible.dev</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="gradient-bg rounded-full p-3 mr-4 flex-shrink-0">
+                                        <i class="fas fa-phone-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Téléphone</h4>
+                                        <p class="text-gray-400">+33 6 12 34 56 78</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-4">Suivez-moi</h3>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/paisible7" target="_blank" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-full w-12 h-12 flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="#" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-full w-12 h-12 flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-linkedin-in text-xl"></i>
+                                </a>
+                                <a href="#" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-full w-12 h-12 flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-twitter text-xl"></i>
+                                </a>
+                                <a href="#" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-full w-12 h-12 flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-full w-12 h-12 flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-dribbble text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 bg-black/50">
+        <div class="container mx-auto">
+            <div class="flex flex-col items-center">
+                <a href="#" class="mb-8">
+                    <img src="images/perso/logoMP.png" alt="Logo" class="w-16 h-16">
+                </a>
+                
+                <div class="flex flex-wrap justify-center gap-6 mb-8">
+                    <a href="#about" class="text-white hover:text-gray-300 transition duration-300">A Propos</a>
+                    <a href="#skills" class="text-white hover:text-gray-300 transition duration-300">Compétences</a>
+                    <a href="#projects" class="text-white hover:text-gray-300 transition duration-300">Projets</a>
+                    <a href="#contact" class="text-white hover:text-gray-300 transition duration-300">Contact</a>
+                    <a href="assets/CV.pdf" target="_blank" class="text-white hover:text-gray-300 transition duration-300">CV</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition duration-300">Mentions légales</a>
+                </div>
+                
+                <div class="flex space-x-6 mb-8">
+                    <a href="https://github.com/paisible7" target="_blank" class="text-white hover:text-gray-300 text-xl transition duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-xl transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-xl transition duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 text-xl transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                
+                <p class="text-center text-gray-400">
+                    © 2024 M. PAISIBLE. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-black/80 border border-white/10 rounded-full p-3 text-white opacity-0 invisible transition-all duration-300 hover:bg-gradient-to-r from-blue-500 to-purple-500">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </a>
+
+    <script>
+        // Splash screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const splash = document.getElementById('splash-screen');
+                splash.classList.add('animate__animated', 'animate__fadeOut');
+                
+                setTimeout(function() {
+                    splash.style.display = 'none';
+                }, 1000);
+            }, 2000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For now, we'll just show a success message
+            Swal.fire({
+                title: 'Message envoyé!',
+                text: 'Merci pour votre message, je vous répondrai dès que possible.',
+                icon: 'success',
+                confirmButtonColor: '#009dff',
+                confirmButtonText: 'OK'
+            });
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.project-card, .tech-icon, .profile-img, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            
+            if (document.body.classList.contains('light-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Music player
+        const bgMusic = document.getElementById('bg-music');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playPauseIcon = playPauseBtn.querySelector('i');
+        const volumeControl = document.getElementById('volume-control');
+        
+        // Autoplay with user interaction
+        document.addEventListener('click', function() {
+            bgMusic.play();
+            playPauseIcon.classList.remove('fa-play');
+            playPauseIcon.classList.add('fa-pause');
+        }, { once: true });
+        
+        playPauseBtn.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                playPauseIcon.classList.remove('fa-play');
+                playPauseIcon.classList.add('fa-pause');
+            } else {
+                bgMusic.pause();
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+        });
+        
+        volumeControl.addEventListener('input', function() {
+            bgMusic.volume = this.value;
+        });
+    </script>
+</body>
+</html>
