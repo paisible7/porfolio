@@ -1048,21 +1048,6 @@
         themeToggle.addEventListener('click', toggleTheme);
         themeToggleMobile.addEventListener('click', toggleTheme);
 
-        // Music player
-        const bgMusic = document.getElementById('bg-music');
-        const volumeControl = document.getElementById('volume-control');
-        
-        // Set initial volume
-        bgMusic.volume = volumeControl.value;
-        
-        // Autoplay with user interaction
-        document.addEventListener('click', function() {
-            bgMusic.play();
-        }, { once: true });
-        
-        volumeControl.addEventListener('input', function() {
-            bgMusic.volume = this.value;
-        });
     </script>
 </body>
 </html>
