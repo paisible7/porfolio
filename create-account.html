@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route d'Espoir - Création de compte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: #007802;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        .button {
+            background-color: #007802;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+        }
+        .warning {
+            background-color: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🏕️</div>
+        <h1>Route d'Espoir</h1>
+        <h2>Création de votre compte</h2>
+        
+        <p>Votre demande d'adhésion a été acceptée ! Pour finaliser votre inscription, vous devez ouvrir l'application mobile.</p>
+        
+        <div class="warning">
+            <strong>⚠️ Important :</strong> Ce lien est valable pendant 24 heures.
+        </div>
+        
+        <div>
+            <a href="routespoir://create-account?token=TOKEN_PLACEHOLDER" class="button">
+                🚀 Ouvrir l'application
+            </a>
+        </div>
+        
+        <p style="margin-top: 30px; color: #666; font-size: 14px;">
+            Si l'application ne s'ouvre pas automatiquement, assurez-vous qu'elle est installée sur votre appareil.
+        </p>
+        
+        <p style="color: #666; font-size: 12px;">
+            Si vous n'avez pas l'application, contactez votre chef de groupe pour l'obtenir.
+        </p>
+    </div>
+
+    <script>
+        // Récupérer le token depuis l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        
+        if (token) {
+            // Mettre à jour le lien avec le vrai token
+            const appLink = document.querySelector('a[href^="routespoir://"]');
+            appLink.href = `routespoir://create-account?token=${token}`;
+            
+            // Essayer d'ouvrir l'app automatiquement
+            setTimeout(() => {
+                window.location.href = `routespoir://create-account?token=${token}`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html> 
