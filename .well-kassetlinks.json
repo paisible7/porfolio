@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.routespoir",
+    "sha256_cert_fingerprints": [
+      "D0:D5:EB:99:34:FE:4B:B4:BF:25:DC:A6:FB:F9:68:09:96:9B:5E:87:3A:4A:E1:88:BB:3F:5A:D9:EB:37:B8:4B"
+    ]
+  }
+}]
